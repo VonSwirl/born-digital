@@ -1,0 +1,16 @@
+{
+  "name": "born-digital",
+  "version": "1.0.0",
+  "description": "Hopefully this project will satisfy all requirements specified by Client (Mr. S)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "React",
+    "NodeJs",
+    "Firebase"
+  ],
+  "author": "Jerome Hurley",
+  "license": "ISC"
+}
