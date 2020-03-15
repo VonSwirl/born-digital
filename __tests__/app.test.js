@@ -2,7 +2,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import App from '../src/App'
+import App from '../src/app'
 import HelloWorld from '../src/components/born-digital'
 
 describe('<App />', () => {
