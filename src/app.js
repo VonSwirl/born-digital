@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader/root'
-import HelloWorld from './components/hello-world'
+import HelloWorld from './components/born-digital'
 import alert from './components/alert-test'
 
 class App extends Component {
