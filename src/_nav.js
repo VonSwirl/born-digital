@@ -11,7 +11,7 @@ export default {
     {
       name: 'Sign In',
       url: '/sign-in',
-      icon: 'icon-user-follow',
+      icon: 'icon-lock',
       badge: {
         variant: 'info'
       }
@@ -23,38 +23,6 @@ export default {
       badge: {
         variant: 'info'
       }
-    },
-    {
-      title: true,
-      name: 'Components',
-      wrapper: {
-        element: '',
-        attributes: {}
-      }
-    },
-    {
-      name: 'Base',
-      url: '/base',
-      icon: 'icon-puzzle',
-      children: [
-        {
-          name: 'Tables',
-          url: '/base/tables',
-          icon: 'icon-puzzle'
-        }
-      ]
-    },
-    {
-      name: 'Notifications',
-      url: '/notifications',
-      icon: 'icon-bell',
-      children: [
-        {
-          name: 'Modals',
-          url: '/notifications/modals',
-          icon: 'icon-bell'
-        }
-      ]
     }
   ]
 }
