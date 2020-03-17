@@ -1,0 +1,6 @@
+{
+  "name": "Sign In",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FirebaseUI.js"
+}
