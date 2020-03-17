@@ -1,11 +1,15 @@
 {
-  "name": "@coreui/coreui-free-react-admin-template",
-  "version": "2.6.0",
-  "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
-  "license": "MIT",
+  "name": "born-digital",
+  "version": "2.0.0",
+  "description": "React Admin Solution",
   "repository": {
     "type": "git",
-    "url": "git@github.com:coreui/coreui-free-react-admin-template.git"
+    "url": "git+https://github.com/VonSwirl/born-digital.git"
+  },
+  "author": "Jerome Hurley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VonSwirl/born-digital/issues"
   },
   "dependencies": {
     "@coreui/coreui": "^2.1.12",
@@ -56,12 +60,8 @@
     "test:debug": "react-scripts --inspect-brk test --runInBand",
     "eject": "react-scripts eject"
   },
-  "bugs": {
-    "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+
+  "eslintConfig": { "extends": "react-app" },
   "browserslist": [
     ">0.2%",
     "not dead",
