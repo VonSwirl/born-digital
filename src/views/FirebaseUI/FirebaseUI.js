@@ -145,9 +145,6 @@ class FirebaseUI extends Component {
                   <Button style={{ margin: '20px auto' }}color="primary" onClick={() => fireConfig.auth().signOut()}>Sign-out</Button>
                 </div>
               </CardBody>
-
-              <CardFooter>
-              </CardFooter>
             </Card>
           </div>
         }

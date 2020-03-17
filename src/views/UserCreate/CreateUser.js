@@ -48,13 +48,15 @@ class CreateUser extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  /** * Displays modal if not authorised to add user */
+  /** * Displays modal if UNAUTHORISED */
   toggleAuthWarning () { this.setState({ authWarning: !this.state.authWarning }) }
 
-  /** * Displays modal if create user failed */
+  /** * Displays modal if create user FAILED */
   toggleCreateFailed () { this.setState({ createFailed: !this.state.createFailed }) }
 
+  /** * Displays modal if create user SUCCESS */
   toggleCreateSuccess () { this.setState({ createSuccess: !this.state.createSuccess }) }
+
   /** * Attempt to create user on submit */
   addUser = e => {
     e.preventDefault()
