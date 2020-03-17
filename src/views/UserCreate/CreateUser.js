@@ -6,21 +6,33 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Label,
-  FormText,
   Button,
   Form,
-  FormGroup,
-  Col
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText
 } from 'reactstrap'
-import fireConfig from "../../fireConfig"
+import fireConfig from '../../fireConfig'
 
 class CreateUser extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = { email: '', name: '' }
   }
 
+  /**
+   * @inheritDoc
+   */
+  componentDidMount () {
+    this.unregisterAuthObserver = fireConfig.auth().onAuthStateChanged((user) => {
+      this.setState({ isSignedIn: !!user })
+    })
+  }
+
+  /**
+   * @inheritDoc
+   */
+  componentWillUnmount () { this.unregisterAuthObserver() }
   updateInput = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -37,33 +49,51 @@ class CreateUser extends Component {
     this.setState({ name: '', email: '' })
   }
 
-  render() {
+  render () {
     return (
+      <div>
+        {this.state.isSignedIn &&
       < div className="animated fadeIn" >
-        <Form action="" className="form-horizontal" onSubmit={this.addUser}>
+        <Form className="form-horizontal" onSubmit={this.addUser}>
           <Card>
             <CardHeader>
-              <strong>Create New User</strong>
+              <strong><h4>Create New User</h4></strong>
             </CardHeader>
             <CardBody>
-              <FormGroup row>
-                <Col md="3">
-                  <Label htmlFor="name">Name</Label>
-                </Col>
-                <Col xs="12" md="9">
-                  <Input type="text" id="name" name="name" placeholder="Enter Name..." value={this.state.name} onChange={this.updateInput} required/>
-                  <FormText className="help-block">Please enter your name</FormText>
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Col md="3">
-                  <Label htmlFor="email">Email</Label>
-                </Col>
-                <Col xs="12" md="9">
-                  <Input type="email" id="email" name="email" placeholder="Enter Email..." autoComplete="email" value={this.state.email} onChange={this.updateInput} required/>
-                  <FormText className="help-block">Please enter your email</FormText>
-                </Col>
-              </FormGroup>
+
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="icon-user-follow"></i>
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter New Users Name"
+                  value={this.state.name}
+                  onChange={this.updateInput}
+                  required
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="icon-envelope"></i>
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter New Users Email"
+                  autoComplete="email"
+                  value={this.state.email}
+                  onChange={this.updateInput}
+                  required
+                />
+              </InputGroup>
             </CardBody>
             <CardFooter>
               <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
@@ -71,7 +101,14 @@ class CreateUser extends Component {
             </CardFooter>
           </Card>
         </Form>
-      </div >)
+      </div >
+        }{this.state.isSignedIn !== undefined && !this.state.isSignedIn &&
+          <div>
+            <br></br>
+            <h2 style={{ textAlign: 'center' }}>Access Denied</h2>
+          </div>
+        }
+      </div>)
   }
 }
 export default CreateUser
