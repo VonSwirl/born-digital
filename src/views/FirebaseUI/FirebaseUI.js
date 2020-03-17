@@ -138,8 +138,8 @@ class FirebaseUI extends Component {
                 <strong><h4>Sign In</h4></strong>
               </CardHeader>
               <CardBody>
-                <div className="signedIn">
-                  Hello{fireConfig.auth().currentUser.displayName}. You are now signed In!
+                <div style={{ textAlign: 'center' }} className="signedIn">
+                  Hi {fireConfig.auth().currentUser.displayName}. You are now signed In!
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <Button style={{ margin: '20px auto' }}color="primary" onClick={() => fireConfig.auth().signOut()}>Sign-out</Button>
