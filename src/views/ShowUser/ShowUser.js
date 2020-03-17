@@ -99,7 +99,7 @@ class ShowUser extends Component {
                       <dd>{this.state.board.email}</dd>
                     </dl>
                     <Link to={`/edit-user/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
-                    <button onClick={this.delete} class="btn btn-danger">Delete</button>
+                    <button onClick={this.delete} className="btn btn-danger">Delete</button>
                   </CardBody>
                 </Card>
               </Col>

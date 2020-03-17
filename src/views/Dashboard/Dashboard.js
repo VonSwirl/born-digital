@@ -8,8 +8,7 @@ import {
   Col,
   Row,
   Button,
-  Table,
-  CardFooter
+  Table
 } from 'reactstrap'
 
 class Dashboard extends Component {
