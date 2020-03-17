@@ -14,7 +14,9 @@ import {
   Modal,
   ModalHeader,
   ModalFooter,
-  ModalBody
+  ModalBody,
+  Row,
+  Col
 } from 'reactstrap'
 import fireConfig from '../../fireConfig'
 
@@ -124,8 +126,11 @@ class CreateUser extends Component {
               </InputGroup>
             </CardBody>
             <CardFooter>
-              <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
-              <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
+              <Row>
+                <Col xs="6">
+                  <Button type="submit" className="px-20" color="primary">Submit</Button>
+                </Col>
+              </Row>
             </CardFooter>
           </Card>
         </Form>
