@@ -14,7 +14,9 @@ import {
   Row,
   ModalHeader,
   ModalFooter,
-  ModalBody
+  ModalBody,
+  CardFooter,
+  CardHeader
 } from 'reactstrap'
 
 import fireConfig from '../../fireConfig'
@@ -77,27 +79,27 @@ class FirebaseUI extends Component {
    */
   render () {
     return (
-      < div className="animated fadeIn" >
-        <Card>
-          <CardBody>
-            <h1>Sign In</h1>
-            <br></br>
-            {this.state.isSignedIn !== undefined && !this.state.isSignedIn &&
-              <div>
+      <div>
+        {this.state.isSignedIn !== undefined && !this.state.isSignedIn &&
+          <div className="animated fadeIn">
+            <Card >
+              <CardHeader>
+                <strong><h4>Sign In</h4></strong>
+              </CardHeader>
+              <CardBody>
                 <InputGroup className="mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="icon-user"></i>
+                      <i className="icon-envelope"></i>
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
                     type='email'
                     label='Email Address'
                     placeholder='Email'
-                    securetextentry='true'
                     value={this.state.email}
                     onChange={this.onChangeEmail}
-                    required
+                    required={true}
                   />
                 </InputGroup>
                 <InputGroup className="mb-4">
@@ -108,13 +110,15 @@ class FirebaseUI extends Component {
                   </InputGroupAddon>
                   <Input
                     label='Password'
+                    type='password'
                     placeholder='Password'
-                    securetextentry='true'
                     value={this.state.password}
                     onChange={this.onChangePW}
-                    required
+                    required={true}
                   />
                 </InputGroup>
+              </CardBody>
+              <CardFooter>
                 <Row>
                   <Col xs="6">
                     {this.renderButtonOrLoading()}
@@ -123,17 +127,30 @@ class FirebaseUI extends Component {
                     <Button color="link" className="px-0">Forgot password?</Button>
                   </Col>
                 </Row>
-                <br></br>
-              </div>
-            }
-            {this.state.isSignedIn &&
-              <div className="signedIn">
-                Hello {fireConfig.auth().currentUser.displayName}. You are now signed In!
-                <a className="button" onClick={() => fireConfig.auth().signOut()}>Sign-out</a>
-              </div>
-            }
-          </CardBody>
-        </Card>
+              </CardFooter>
+            </Card>
+          </div>
+        }
+        {this.state.isSignedIn &&
+          <div className="animated fadeIn">
+            <Card >
+              <CardHeader>
+                <strong><h4>Sign In</h4></strong>
+              </CardHeader>
+              <CardBody>
+                <div className="signedIn">
+                  Hello{fireConfig.auth().currentUser.displayName}. You are now signed In!
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <Button style={{ margin: '20px auto' }}color="primary" onClick={() => fireConfig.auth().signOut()}>Sign-out</Button>
+                </div>
+              </CardBody>
+
+              <CardFooter>
+              </CardFooter>
+            </Card>
+          </div>
+        }
         <Modal isOpen={this.state.warning} toggle={this.toggleWarning}
           className={'modal-warning ' + this.props.className}>
           <ModalHeader toggle={this.toggleWarning}>Authentication Failed</ModalHeader>
@@ -146,7 +163,7 @@ class FirebaseUI extends Component {
             <Button color="warning" onClick={this.toggleWarning}>Close</Button>
           </ModalFooter>
         </Modal>
-      </div >
+      </div>
     )
   }
 }
