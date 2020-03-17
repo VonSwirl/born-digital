@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import firebase from 'firebase'
+
 const config = {
   apiKey: process.env.REACT_APP_FIREB_APIKEY,
   authDomain: process.env.REACT_APP_FIREB_AUTH_DOMAIN,
